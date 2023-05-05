@@ -4,11 +4,6 @@ fn main() {
 
 extern crate exif;
 use regex::Regex;
-use std::env;
-use std::fs::File;
-use std::io::BufReader;
-use std::os::fd::AsFd;
-use std::path::{Path, PathBuf};
 
 use exif::{In, Tag};
 fn extract_exif() -> Result<(), exif::Error> {
@@ -45,10 +40,19 @@ fn extract_exif() -> Result<(), exif::Error> {
             let reg_replace_empty_str_lat = reg_exclude.replace_all(&print_lat, "");
             let reg_replace_empty_str_long = reg_exclude.replace_all(&print_long, "");
 
+            let for_google = format!(
+                "www.google.com/maps/place/{}{}",
+                reg_replace_empty_str_lat, reg_replace_empty_str_long
+            );
+
             println!(
                 "Latitude,Longitude: {} {}",
                 reg_replace_empty_str_lat, reg_replace_empty_str_long
             );
+            println!("{for_google}");
+
+            let t: String = for_google.chars().filter(|c| !c.is_whitespace()).collect();
+            println!("{:?}", t);
         }
     }
 
@@ -56,5 +60,5 @@ fn extract_exif() -> Result<(), exif::Error> {
 }
 
 // Todo :
-//        parse to load straight to google map .
+//        parse to load straight to google map . Need equation for covert to decimal degrees
 //        print to terminal, print to file ?
