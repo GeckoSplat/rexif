@@ -49,16 +49,9 @@ fn extract_exif() -> Result<(), exif::Error> {
                 "Latitude,Longitude: {} {}",
                 reg_replace_empty_str_lat, reg_replace_empty_str_long
             );
-            println!("{for_google}");
-
-            let t: String = for_google.chars().filter(|c| !c.is_whitespace()).collect();
-            println!("{:?}", t);
+            println!("{for_google}\n");
         }
     }
 
     Ok(())
 }
-
-// Todo :
-//        parse to load straight to google map . Need equation for covert to decimal degrees
-//        print to terminal, print to file ?
