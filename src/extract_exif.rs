@@ -40,14 +40,14 @@ pub fn extract_exif() {
                     if gps_lat.to_string().ends_with("W") {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
 
-                        print!("https://maps.google.com/?q={:?},", lodeg * -1.0);
+                        print!("https://maps.google.com/?q={},", lodeg * -1.0);
                     } else if gps_lat.to_string().ends_with("S") {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
-                        print!("https://maps.google.com/?q={:?},", lodeg * -1.0);
+                        print!("https://maps.google.com/?q={},", lodeg * -1.0);
                     } else {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
 
-                        print!("https://maps.google.com/?q={:?},", lodeg);
+                        print!("https://maps.google.com/?q={},", lodeg);
                     }
                 }
 
@@ -62,13 +62,13 @@ pub fn extract_exif() {
                 Value::Rational(ref v) if !v.is_empty() => {
                     if gps_long.to_string().ends_with("W") {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
-                        println!("{:?}", lodeg * -1.0)
+                        println!("{}", lodeg * -1.0)
                     } else if gps_long.to_string().ends_with("S") {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
-                        println!("{:?}", lodeg * -1.0)
+                        println!("{}", lodeg * -1.0)
                     } else {
                         let lodeg = v[0].to_f64() + v[1].to_f64() / 60.0 + v[2].to_f64() / 3600.0;
-                        println!("{:?}", lodeg)
+                        println!("{}", lodeg)
                         
                     }
                 }
