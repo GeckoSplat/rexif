@@ -1,4 +1,3 @@
-extern crate exif;
 use exif::{In, Tag, Value};
 
 pub fn extract_exif() {
@@ -32,7 +31,7 @@ pub fn extract_exif() {
 
 
         // latitude first , then longitude for maps.
-        // match statements combine the string needed to load straight to google maps in print!.
+        // match statements combine the string needed to load straight to google maps with print! macro.
 
         match exif.get_field(Tag::GPSLatitude, In::PRIMARY) {
             Some(xres) => match xres.value {
