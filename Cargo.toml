@@ -1,5 +1,5 @@
 [package]
-name = "rusty_exif"
+name = "rexif"
 version = "0.1.0"
 edition = "2021"
 
