@@ -1,4 +1,4 @@
-# rusty_exif.
+# rexif.
 
 Extract GPS data from JPEG files. Navigate directly to the location at which the picture was taken on Googlemaps.
 
