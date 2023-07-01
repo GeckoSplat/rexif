@@ -101,7 +101,7 @@ impl Parser {
 
                     None => 0.0,
                 };
-                let image = file_buffer // fixed error by making mut on line 150.
+                let image = file_buffer // fixed error by making file_buffer mut.
                     .unwrap()
                     .file_name()
                     .to_str()
